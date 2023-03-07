@@ -1,0 +1,176 @@
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+
+.wrapper {
+    margin: auto;
+}
+
+@for $i from 1 to 15 {
+    $maxWidth: $i * 100px;
+    .wrapper-#{$i} {
+        width: 100%;
+        max-width: $maxWidth;
+    }
+}
+
+@each $breakpoint, $dimension in $grid-breakpoints {
+    $breakpointText: "";
+    
+    @if ($breakpoint == "xs") {
+        $breakpointText: ""
+    }
+    @else {
+        $breakpointText: "-" + $breakpoint
+    }
+    
+    @media screen and (min-width: $dimension) {
+        .margin#{$breakpointText}-0 {
+            margin: 0;
+        }
+        .margin-t#{$breakpointText}-0 {
+            margin-top: 0;
+        }
+        .margin-r#{$breakpointText}-0 {
+            margin-right: 0;
+        }
+        .margin-b#{$breakpointText}-0 {
+            margin-bottom: 0;
+        }
+        .margin-l#{$breakpointText}-0 {
+            margin-left: 0;
+        }
+        .margin-x#{$breakpointText}-0 {
+            margin-left: 0;
+            margin-right: 0;
+        }
+        .margin-y#{$breakpointText}-0 {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .padding#{$breakpointText}-0 {
+            padding: 0;
+        }
+        .padding-t#{$breakpointText}-0 {
+            padding-top: 0;
+        }
+        .padding-r#{$breakpointText}-0 {
+            padding-right: 0;
+        }
+        .padding-b#{$breakpointText}-0 {
+            padding-bottom: 0;
+        }
+        .padding-l#{$breakpointText}-0 {
+            padding-left: 0;
+        }
+        .padding-x#{$breakpointText}-0 {
+            padding-left: 0;
+            padding-right: 0;
+        }
+        .padding-y#{$breakpointText}-0 {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        @for $i from 1 through 10 {
+            $margin: $i * 0.25rem;
+            
+            .margin#{$breakpointText}-#{$i} {
+                margin: $margin;
+            }
+    
+            .margin-x#{$breakpointText}-#{$i} {
+                margin-left: $margin;
+                margin-right: $margin;
+            }
+    
+            .margin-y#{$breakpointText}-#{$i} {
+                margin-top: $margin;
+                margin-bottom: $margin;
+            }
+    
+            .margin-t#{$breakpointText}-#{$i} {
+                margin-top: $margin;
+            }
+    
+            .margin-r#{$breakpointText}-#{$i} {
+                margin-right: $margin;
+            }
+            
+            .margin-b#{$breakpointText}-#{$i} {
+                margin-bottom: $margin;
+            }
+    
+            .margin-l#{$breakpointText}-#{$i} {
+                margin-left: $margin
+            }        
+        }
+
+        @for $i from 1 through 10 {
+            $padding: $i * 0.25rem;
+            
+            .padding#{$breakpointText}-#{$i} {
+                padding: $padding;
+            }
+    
+            .padding-x#{$breakpointText}-#{$i} {
+                padding-left: $padding;
+                padding-right: $padding;
+            }
+    
+            .padding-y#{$breakpointText}-#{$i} {
+                padding-top: $padding;
+                padding-bottom: $padding;
+            }
+    
+            .padding-t#{$breakpointText}-#{$i} {
+                padding-top: $padding;
+            }
+    
+            .padding-r#{$breakpointText}-#{$i} {
+                padding-right: $padding;
+            }
+            
+            .padding-b#{$breakpointText}-#{$i} {
+                padding-bottom: $padding;
+            }
+    
+            .padding-l#{$breakpointText}-#{$i} {
+                padding-left: $padding
+            }
+        }
+    
+        @for $i from 10 through 50 {
+            .font-size#{$breakpointText}-#{$i} {
+                font-size: $i;
+            }
+            .font#{$breakpointText}-bold {
+                font-weight: bold;
+            }
+        }
+
+        .text#{$breakpointText}-center {
+            text-align: center;
+        }
+
+        @for $i from 0 through 20 {
+            .border-radius#{$breakpointText}-#{$i} {
+                border-radius: #{$i}px;
+            }
+        }
+
+        @for $i from 10 through 100 {
+            $width: $i * 5px;
+
+            .width#{$breakpointText}-#{$i} {
+                width: $width;
+            }
+        }
+    }
+}
